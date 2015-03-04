@@ -31,7 +31,7 @@ public class Parser{
            // current++;
 
             //печатаем на форме и в консоль
-            futuresList.add(parseTest(ticker));
+            futuresList.add(parsePage(ticker));
             System.out.println("Парсинг: " + ticker);
             jTextArea1.append("\n");
             jTextArea1.append("Парсинг: " + ticker);
@@ -55,7 +55,7 @@ public class Parser{
 //        return output;
 //    }
 
-    public FuturesDAO parseTest(String url_ticker) throws IOException {
+    public FuturesDAO parsePage(String url_ticker) throws IOException {
         Document doc = Jsoup.connect("http://moex.com" + url_ticker).timeout(time_out).get();
         Elements name = doc.select("table[class=table3px] tr:contains(Наименование контракта) td[class=pvalue]");
         Elements price_step = doc.select("table[class=table3px] tr:contains(Стоимость шага цены) td[class=pvalue]");

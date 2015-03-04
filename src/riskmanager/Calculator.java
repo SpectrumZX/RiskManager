@@ -20,11 +20,7 @@ public class Calculator {
         output[1] = this.sl * this.tp_sl; // Take-profit pp
         output[2] = this.tp_sl * this.sl * this.tp_sl * this.step_price * this.contracts; // Take-profit money
         result = margin * this.contracts.floatValue() / this.deposit * step; //Leverage  ГО*кол-во контрактов/депозит*шаг цены
-       // if (result < 1) {
        System.out.println(margin+" * "+this.contracts+" / "+this.deposit+" * "+step);
-    //     output[3] = 1;
-    //    }
-    //    else output[3] = result;
         output[3] = result;
         return output;
     }
