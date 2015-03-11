@@ -1,11 +1,9 @@
 package riskmanager;
 
-import static com.sun.org.apache.xml.internal.serialize.LineSeparator.Windows;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 
