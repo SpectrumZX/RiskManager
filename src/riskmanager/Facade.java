@@ -83,7 +83,7 @@ public static Connection con = null; // хранит соединение с Б�
 
  
         Statement stment3 = con.createStatement();
-        // добавляем новые тикеры в БД
+        // добавляем новые тиккеры в БД
           for(FuturesDAO current_ticker:futures_list){            
 
            String sql3 = "INSERT INTO tickers (name, ticker, margin, price_step, step) " +
