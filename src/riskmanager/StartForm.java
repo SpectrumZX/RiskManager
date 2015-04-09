@@ -111,7 +111,8 @@ List<FuturesDAO> futuresList;
             }
         });
 
-        jLabel5.setText("Деозит (руб.)");
+        jLabel5.setText("Депозит (руб.)");
+        jLabel5.setToolTipText("");
 
         jTextFielddeposit.setText("120000");
         jTextFielddeposit.setToolTipText("");

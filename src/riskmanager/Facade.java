@@ -26,7 +26,7 @@ public static Connection con = null; // хранит соединение с Б�
          try {
                   
             Driver driver = (Driver) Class.forName("org.sqlite.JDBC").newInstance();
-            String url = "jdbc:sqlite:c:/DB/RiskM.DB";
+            String url = "jdbc:sqlite:RiskM.DB";
             con = DriverManager.getConnection(url);
                         
             }  catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {  e.printStackTrace();     }

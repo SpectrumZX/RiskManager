@@ -277,7 +277,8 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x414;&#x435;&#x43e;&#x437;&#x438;&#x442; (&#x440;&#x443;&#x431;.)"/>
+                <Property name="text" type="java.lang.String" value="&#x414;&#x435;&#x43f;&#x43e;&#x437;&#x438;&#x442; (&#x440;&#x443;&#x431;.)"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFielddeposit">
