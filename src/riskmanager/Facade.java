@@ -29,8 +29,11 @@ public static Connection con = null; // хранит соединение с Б�
             String url = "jdbc:sqlite:RiskM.DB";
             con = DriverManager.getConnection(url);
                         
-            }  catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {  e.printStackTrace();     }
+            }  catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {  
                 
+                closeConnect();
+                e.printStackTrace();     }
+           
         
     }
        
