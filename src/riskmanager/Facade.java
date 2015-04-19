@@ -17,27 +17,28 @@ private int current, max;
 private List<FuturesDAO> list = new ArrayList<>(); // лист фьючерсов
 public static Connection con = null; // хранит соединение с БД
     
-   public Facade(){   // конструктор активизирует подключение
-    Facade.connect();  
+   public Facade(){   
+   
     }
    
-       public static void connect(){ 
+       public void connect(){ 
                     
          try {
                   
             Driver driver = (Driver) Class.forName("org.sqlite.JDBC").newInstance();
             String url = "jdbc:sqlite:RiskM.DB";
             con = DriverManager.getConnection(url);
-                        
-            }  catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {  
-                
+            
+            }  catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) 
+            {                  
                 closeConnect();
-                e.printStackTrace();     }
+                e.printStackTrace();     
+            }
            
         
     }
        
-       public static void closeConnect() {
+       public void closeConnect() {
         try {
             if (con != null) {
                 con.close();
@@ -49,8 +50,9 @@ public static Connection con = null; // хранит соединение с Б�
     public List<FuturesDAO>  selectAllFutures() {
      
         String sql = "SELECT * FROM tickers"; // подготовка SQL запроса
-       
-       try {            
+        connect();
+       try {     
+           
            Statement stment = con.createStatement();
            ResultSet res = stment.executeQuery(sql); // выполнение SQL запроса        
            list.clear();
@@ -67,13 +69,16 @@ public static Connection con = null; // хранит соединение с Б�
                list.add(futures);
                
            }
-             } catch (SQLException e) {System.out.println("error from selectAll()"); } 
+             } catch (SQLException e) {System.out.println("error from selectAll()");
+             e.printStackTrace();
+             } 
+       closeConnect();
        return list;
     }
     
     public void addAllFutures(List<FuturesDAO> futures_list){
         
-       
+       connect();
     try {
         
         //удаляем старые записи БД не трогаем ТЕСТ-тикер
@@ -96,14 +101,12 @@ public static Connection con = null; // хранит соединение с Б�
  
         }
         
-        
-   
-     
+
     } catch (SQLException ex) {
         Logger.getLogger(Facade.class.getName()).log(Level.SEVERE, null, ex);
     }
     
-    
+    closeConnect();
    
     }
     
