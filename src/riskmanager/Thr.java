@@ -31,8 +31,7 @@ public class Thr extends Thread {
             
             Parser parser = new Parser(time_out, jTextArea1);       
             List<FuturesDAO> futuresList = parser.getFuturesList();
-            form.setListToComboBox(futuresList);
-                        
+            form.setListToComboBox(futuresList);  // setListToComboBox самописный местод         
             // записываем свежий лист фьючерсов в БД
             new Facade().addAllFutures(futuresList);
             

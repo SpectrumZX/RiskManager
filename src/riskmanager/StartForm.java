@@ -239,6 +239,7 @@ List<FuturesDAO> futuresList;
         jTextField_sl.getText(),
         jSpinner1.getValue().toString(),
         jComboBox1.getSelectedItem().toString(),
+        
         jTextFielddeposit.getText(),
         current_f.getMargin(),
          current_f.getStep()
@@ -257,7 +258,7 @@ List<FuturesDAO> futuresList;
 
     private void jButtonRefreshDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshDataActionPerformed
         
-             // в конструткор треда передаем ссылку на TextArea для вывода текста и таймаут
+             // в конструткор треда передаем ссылку на TextArea1 для вывода текста, значение таймаут и Ссылку на форму
         Thr thr = new Thr(this.jTextArea1, Integer.parseInt(jTextField_timeout.getText()), this);
       
 // отчищаем комбобокс
