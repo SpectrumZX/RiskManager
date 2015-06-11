@@ -11,7 +11,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class StartForm extends javax.swing.JFrame {
     
 Facade futuresFacade;
-List<FuturesDAO> futuresList;
+List<FuturesEntity> futuresList;
 
     public StartForm() {
         initComponents();
@@ -231,7 +231,7 @@ List<FuturesDAO> futuresList;
     Calculator calc = new Calculator();                       
             
     private void ButtonCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCalculateActionPerformed
-        FuturesDAO current_f = (FuturesDAO)jComboBox1.getSelectedItem();
+        FuturesEntity current_f = (FuturesEntity)jComboBox1.getSelectedItem();
         
         Object[] output = calc.calculate(
         jTextField_step_price.getText(),
@@ -275,7 +275,7 @@ for(int i=0;i<itemCount-1;i++){
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
-        FuturesDAO current_f = (FuturesDAO)jComboBox1.getSelectedItem();
+        FuturesEntity current_f = (FuturesEntity)jComboBox1.getSelectedItem();
         jTextArea1.setText(null);
         jTextField_step_price.setText(String.valueOf(current_f.getPrice_step()));
         jTextArea1.append(current_f.getTicker());
@@ -292,10 +292,10 @@ for(int i=0;i<itemCount-1;i++){
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-     public void setListToComboBox(List<FuturesDAO> futuresList){    
+     public void setListToComboBox(List<FuturesEntity> futuresList){    
     
      for(Object item : futuresList){
-             FuturesDAO fItem = (FuturesDAO) item;
+             FuturesEntity fItem = (FuturesEntity) item;
            jComboBox1.addItem(fItem);
      }
      }

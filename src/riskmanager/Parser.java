@@ -21,8 +21,8 @@ public class Parser{
     }
     
 
-    public List<FuturesDAO> getFuturesList() throws IOException {
-        List<FuturesDAO> futuresList = new ArrayList<>();
+    public List<FuturesEntity> getFuturesList() throws IOException {
+        List<FuturesEntity> futuresList = new ArrayList<>();
         
         String tickers[] = parseURL();
       //  max = tickers.length;
@@ -55,14 +55,14 @@ public class Parser{
 //        return output;
 //    }
 
-    public FuturesDAO parsePage(String url_ticker) throws IOException {
+    public FuturesEntity parsePage(String url_ticker) throws IOException {
         Document doc = Jsoup.connect("http://moex.com" + url_ticker).timeout(time_out).get();
         Elements name = doc.select("table[class=table3px] tr:contains(Наименование контракта) td[class=pvalue]");
         Elements price_step = doc.select("table[class=table3px] tr:contains(Стоимость шага цены) td[class=pvalue]");
         Elements step = doc.select("table[class=table3px] tr:contains(Шаг цены) td[class=pvalue]");
         Elements margin = doc.select("table[class=table3px] tr:contains(Гарантийное обеспечение) td[class=pvalue]");
         String str_margin = margin.text().replace(",", ".");
-        FuturesDAO futures = new FuturesDAO();
+        FuturesEntity futures = new FuturesEntity();
         String[] ticker = Jsoup.parse(url_ticker).text().split("code=*"); // select ticker name
         futures.setTicker(ticker[1]); //тикер
         futures.setName(name.text()); // название фьючерса

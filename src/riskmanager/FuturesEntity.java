@@ -1,7 +1,7 @@
 
 package riskmanager;
 
-public class FuturesDAO {
+public class FuturesEntity {
    
     private String ticker, name; 
     private Float step, price_step, margin;
