@@ -71,8 +71,11 @@ public static Connection con = null; // хранит соединение с Б�
            }
              } catch (SQLException e) {System.out.println("error from selectAll()");
              e.printStackTrace();
-             } 
+             }
+       finally {
        closeConnect();
+       }
+       
        return list;
     }
     
@@ -106,7 +109,9 @@ public static Connection con = null; // хранит соединение с Б�
         Logger.getLogger(Facade.class.getName()).log(Level.SEVERE, null, ex);
     }
     
-    closeConnect();
+      finally {
+       closeConnect();
+       }
    
     }
     

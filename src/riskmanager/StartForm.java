@@ -266,7 +266,7 @@ int itemCount = jComboBox1.getItemCount();
 for(int i=0;i<itemCount-1;i++){
     jComboBox1.removeItemAt(1);
      }
-// отчищаем TextArea
+// очищаем TextArea
  jTextArea1.setText(null);    
        
        
